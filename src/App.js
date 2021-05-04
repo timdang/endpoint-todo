@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className={styles.header}>Todo App</header>
+      <header className={styles.header}>Todos</header>
       {isLoading && (
         <div className={styles.spinner}>
           <div className={styles.circle} />
