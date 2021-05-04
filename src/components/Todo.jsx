@@ -7,8 +7,7 @@ import classNames from 'classnames';
 export const Todo = ({ todo }) => {
   const dispatch = useDispatch();
   const onCompletedClick = (el, todo) => {
-    console.warn(el.target.checked, todo);
-    dispatch(todoActions.setTodoComplete(false));
+    dispatch(todoActions.setTodoComplete(el?.target?.checked, todo));
   };
   return (
     <div
@@ -23,7 +22,7 @@ export const Todo = ({ todo }) => {
           onChange={(el) => onCompletedClick(el, todo)}
           checked={todo.isComplete}
         ></input>
-        {todo.description}
+        <span className={styles.truncate}>{todo.description}</span>
       </div>
       {todo.dueDate && (
         <div className={styles.date}>{utils.formatDate(todo.dueDate)}</div>

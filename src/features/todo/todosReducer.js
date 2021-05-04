@@ -12,6 +12,7 @@ export const todosReducer = (state = initialState, action) => {
     }
     case todoActions.SET_TODOS_LOADING:
       return { ...state, isLoading: action.payload };
+    case todoActions.SET_TODO_COMPLETE:
     default:
       return state;
   }

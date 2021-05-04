@@ -2,9 +2,9 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 
 import { todosReducer } from './features/todo';
-import { updateSearchEpic } from './features/todo/epics';
+import { loadTodosEpic, updateTodosEpic } from './features/todo/epics';
 
-const rootEpic = combineEpics(updateSearchEpic);
+const rootEpic = combineEpics(loadTodosEpic, updateTodosEpic);
 const epicMiddleware = createEpicMiddleware();
 
 const rootReducer = combineReducers({
