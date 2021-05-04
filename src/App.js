@@ -1,29 +1,32 @@
-import './App.css';
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { todoActions, selectors } from './features/todo';
+import { Todo } from './components/Todo';
+import { selectors, todoActions } from './features/todo';
+import styles from './styles.module.css';
 
 function App() {
   const dispatch = useDispatch();
-  const todoState = useSelector(selectors.getTodoState);
+  const { isLoading, results } = useSelector(selectors.getTodoState);
+
+  useEffect(() => {
+    dispatch({ type: todoActions.LOAD_TODOS });
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <header className="App-header">Todo App</header>
-      {todoState?.isLoading && <>isLoading</>}
-      {!todoState?.isLoading && (
-        <>
-          <button
-            type="button"
-            onClick={() => dispatch({ type: todoActions.LOAD_TODOS })}
-          >
-            Click
-          </button>
-          {todoState?.results.map((el) => (
-            <>{el.description}</>
+      <header className={styles.header}>Todo App</header>
+      {isLoading && (
+        <div className={styles.spinner}>
+          <div className={styles.circle} />
+        </div>
+      )}
+      {!isLoading && (
+        <div className={styles.wrapper}>
+          {results?.map((todo) => (
+            <Todo todo={todo} key={todo.id} />
           ))}
-        </>
+        </div>
       )}
     </div>
   );

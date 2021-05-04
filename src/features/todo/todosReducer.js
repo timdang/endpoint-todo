@@ -2,7 +2,7 @@ import { todoActions } from '.';
 
 const initialState = {
   results: [],
-  isLoading: false,
+  isLoading: true,
 };
 
 export const todosReducer = (state = initialState, action) => {

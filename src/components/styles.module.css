@@ -1,0 +1,36 @@
+.todo {
+  width: 40%;
+  padding: 10px;
+  margin: 10px;
+  background-color: gray;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo input {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.overdue {
+  background-color: red;
+}
+
+.complete {
+  background-color: green;
+  text-decoration: line-through;
+}
+
+.date {
+  border: 1px solid darkgray;
+  padding: 5px;
+}
