@@ -6,29 +6,6 @@
   margin-bottom: 5px;
 }
 
-.spinner {
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 0.2em;
-}
-
-.circle {
-  padding: 1em;
-  border: 0.3em solid transparent;
-  border-left: 0.3em solid grey;
-  border-radius: 50%;
-  animation: rotating 0.8s linear infinite;
-}
-
-@keyframes rotating {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;

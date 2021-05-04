@@ -1,9 +1,11 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+
 import { todoActions, utils } from '../features/todo';
-import styles from './styles.module.css';
-import classNames from 'classnames';
+import styles from './todo.module.css';
+
 export const Todo = ({ todo }) => {
   const dispatch = useDispatch();
   const onCompletedClick = (el, todo) => {

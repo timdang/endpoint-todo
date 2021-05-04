@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Loader } from './components/Loader';
 import { Todo } from './components/Todo';
 import { selectors, todoActions } from './features/todo';
 import styles from './styles.module.css';
@@ -16,11 +17,7 @@ function App() {
   return (
     <div className="App">
       <header className={styles.header}>Todos</header>
-      {isLoading && (
-        <div className={styles.spinner}>
-          <div className={styles.circle} />
-        </div>
-      )}
+      {isLoading && <Loader />}
       {!isLoading && (
         <div className={styles.wrapper}>
           {results?.map((todo) => (
